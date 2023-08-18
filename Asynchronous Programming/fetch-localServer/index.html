@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Messages</h1>
+    <input type="text" name="tite" id="title">
+    <button id="add">Add</button>
+    <button id="load-messages">Load</button>
+    <div id="messages"></div>
+    <script>
+        let url = 'http://localhost:3030/jsonstore';
+        let titleElement = document.getElementById('title');
+        
+        let buttonElement = document.getElementById('load-messages');
+        let addButtonElement = document.getElementById('add');
+
+        let divElement = document.getElementById('messages');
+
+        buttonElement.addEventListener('click', () =>{
+            fetch(`${url}/messenger`)
+            .then(response => response.json())
+            .then(result => {
+                let values = Object.values(result);
+                let arr = [];
+                for(let value of values){
+                    arr.push(value.content);
+                }
+                divElement.textContent = arr[1];
+            })
+            .catch(err => {console.log(err);})
+        })
+
+        addButtonElement.addEventListener('click', () => {
+            let title = titleElement.value;
+
+            fetch(`${url}/messenger`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                }, 
+                body: JSON.stringify({title})
+            }).then(res => res.json())
+            .then(movie => {
+                console.log(movie)
+            })
+        })
+    </script>
+</body>
+</html>
