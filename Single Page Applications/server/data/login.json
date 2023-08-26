@@ -1,0 +1,19 @@
+{
+    "profiles": {
+        "Simona": {
+            "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
+            "username": "Simona",
+            "password": 123
+        },
+        "Maggi": {
+            "_id": "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be",
+            "username": "Maggi",
+            "password": 456
+        },
+        "Irina": {
+            "_id": "562f8422-88cc-47f9-b273-ed12a319d041",
+            "username": "Irina",
+            "password": 789
+        }
+    }
+}
