@@ -1,0 +1,15 @@
+body{
+    padding: 10px;
+}
+
+.horizontal{
+    list-style: none;
+}
+
+.horizontal li{
+    display: inline;
+}
+
+.vertical{
+    display: disc;
+}
