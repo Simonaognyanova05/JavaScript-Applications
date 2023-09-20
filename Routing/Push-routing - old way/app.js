@@ -15,6 +15,7 @@ document.body.addEventListener('click', (e) => {
     if(e.target.tagName == 'A'){
         e.preventDefault();
         let url = new URL(e.target.href);
+        history.pushState({}, '', url.pathname)
         root.innerHTML = routers[url.pathname];
     }
 })
