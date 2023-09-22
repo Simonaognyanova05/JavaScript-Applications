@@ -1,8 +1,7 @@
 {
-  "name": "page-router",
+  "name": "page-router-second-example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lite-server"
@@ -11,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lit-html": "^2.8.0",
     "lite-server": "^2.6.1",
     "page": "^1.11.6"
-  }
+  },
+  "description": ""
 }

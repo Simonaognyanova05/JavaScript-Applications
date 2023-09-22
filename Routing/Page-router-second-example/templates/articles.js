@@ -1,14 +1,19 @@
-const articlesTemplate = (articles) => `
-<h1>Articles</h1>
-${articles.map(x => `
+import { render, html } from '../node_modules/lit-html/lit-html.js'; 
+
+const articleTemplate = (article) => html`
 <article>
-<h3>${x.title}</h3>
+<h3>${article.title}</h3>
 
 <footer>
-<p>Author: ${x.author}</p>
+<p>Author: ${article.author}</p>
+<a href="/articles/${article.id}">Read more...</a>
 </footer>
 </article>
-`).join('<hr>')}
+`
+const articlesTemplate = (articles) => html`
+<h1>Articles</h1>
+${articles.map(x => html`${articleTemplate(x)}`)}
+
 `;
 
 let root = document.getElementById('root');
@@ -22,6 +27,6 @@ const getArticles = () =>
 export const articlesView = (ctx) => {
     getArticles()
     .then(articles => {
-        root.innerHTML = articlesTemplate(articles);
+        render(articlesTemplate(articles), root);
     })
 };
