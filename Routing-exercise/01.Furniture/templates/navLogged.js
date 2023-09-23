@@ -4,6 +4,7 @@ let guests = document.querySelector('#guest');
 
 const navLoggedTemplate = () => html`
 <a id="loginLink" href="/create">Create Furniture</a>
+<a id="registerLink" href="/my-furniture" class="active">My Publications</a>
 <a id="registerLink" href="/login" class="active">Logout</a>
 `;
 
