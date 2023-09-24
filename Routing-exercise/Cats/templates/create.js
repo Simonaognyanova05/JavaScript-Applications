@@ -1,4 +1,5 @@
 import { html, render } from '../node_modules/lit-html/lit-html.js';
+import { createCatsReq } from '../requests/createCatsRequest.js';
 
 const createCat = (e) => {
     e.preventDefault();
@@ -8,14 +9,7 @@ const createCat = (e) => {
     let breed = formData.get('breed');
     let age = formData.get('age');
 
-    fetch('http://localhost:3030/jsonstore/cats', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json', // Set the content type to JSON
-        },
-        body: JSON.stringify({name, breed, age})
-    })
-    .then(() => alert('Successfull request'))
+    createCatsReq(name, breed, age);
 }
 const createTemplate = () => html`
 <h3>Create new cat</h3>
