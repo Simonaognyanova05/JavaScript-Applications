@@ -1,10 +1,5 @@
 import { html, render } from '../node_modules/lit-html/lit-html.js';
-
-const getBreeds = () => 
-    fetch('http://localhost:3030/jsonstore/cats')
-    .then(res => res.json())
-    .then(result => Object.values(result))
-    .catch(err => alert(err));
+import { getBreeds } from '../requests/breedsRequest.js';
 
 const breedsTemplate = (breeds) => html`
 <h3>Cats' Breeds</h3>

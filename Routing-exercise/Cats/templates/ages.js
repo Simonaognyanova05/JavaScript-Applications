@@ -1,10 +1,5 @@
 import { html, render } from "../node_modules/lit-html/lit-html.js";
-
-const getAges = () => 
-    fetch('http://localhost:3030/jsonstore/cats')
-    .then(res => res.json())
-    .then(result => Object.values(result))
-    .catch(err => alert(err));
+import { getAges } from "../requests/agesRequest.js";
 
 const ageTemplate = (ages) => html`
 <h3>Ages</h3>
