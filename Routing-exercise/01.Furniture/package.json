@@ -1,20 +1,21 @@
 {
-  "dependencies": {
-    "lit-html": "^2.8.0",
-    "page": "^1.11.6"
-  },
   "name": "01.furniture",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "directories": {
     "test": "tests"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "lit-html": "^2.8.0",
+    "lite-server": "^2.6.1",
+    "page": "^1.11.6"
+  }
 }
