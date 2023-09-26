@@ -1,39 +1,35 @@
-import page from '../node_modules/page/page.mjs';
+import page from '//unpkg.com/page/page.mjs'
+import { render } from 'https://unpkg.com/lit-html?module'
+import { PageLayout } from '../Components/PageLayout.js'
+import { Create } from '../Views/Create.js'
+import { Dashboard } from '../Views/Dashboard.js'
+import { Catalog } from '../Views/Catalog.js'
+import { Details } from '../Views/Details.js'
+import { Edit } from '../Views/Edit.js'
+import { Login } from '../Views/Login.js'
+import { Register } from '../Views/Register.js'
+import { context } from './contextAPI.js'
 
-import { navigate } from './utils.js';
-import { createView } from './views/createView.js';
-import { detailsView } from './views/details.js';
-import { editView } from './views/edit.js';
-import { homeView } from './views/homeView.js';
-import { loginView } from './views/login.js';
-// import { myFurnitureView } from './views/myFurniture.js';
-import { registerView } from './views/register.js';
-import { delFurniture } from './requests/requests.js';
+const renderView = (view) => render(PageLayout(view), document.querySelector('body'))
 
-page('/', homeView);
-page('/create', createView);
-page('/my-furniture', myFurnitureView);
-page('/details/:id', detailsView);
-page('/edit/:id', editView);
-page('/login', loginView);
-page('/register', registerView);
-page('/logout', logout);
-page('/delete/:id', deleteFurniture);
-
-function deleteFurniture(ctx) {
-    if (confirm('Are you sure you want to delete this furniture?') == true) {
-        const user = JSON.parse(localStorage.getItem('user'));
-        delFurniture(ctx.params.id, user);   
-    }
-}
-
-function logout() {
-    alert('Successfully logout!');
-    localStorage.removeItem('user');
-    navigate();
-    page.redirect('/');
-}
-
-navigate();
-
-page.start();
+page.redirect('/', '/dashboard')
+page(
+	'/dashboard',
+	context.storeAllFurniture,
+	(context) => renderView(Dashboard(context.allFurniture))
+)
+page('/catalog', () => renderView(Catalog()))
+page('/create', () => renderView(Create()))
+page(
+	'/details/:id',
+	context.storeFurnitureItem,
+	(context) => renderView(Details(context.currentItem))
+)
+page('/edit/:id', context.storeFurnitureItem, (context) => renderView(Edit(context.currentItem)))
+page('/Edit', () => renderView(Edit()))
+page('/Login', () => renderView(Login()))
+page('/my-furniture', context.storeMyFurniture,
+	(context) => renderView(Dashboard(context.myFurniture))
+)
+page('/register', () => renderView(Register()))
+page()
