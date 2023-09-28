@@ -21,6 +21,6 @@ ${movies.map(x => movieTemplate(x))}
 export const homeView = (ctx) => {
     movieService.getAll()
     .then(movies => {
-        render(homeTamplate(movies), document.querySelector('#root'));
+        ctx.render(homeTamplate(movies));
     })
 }
