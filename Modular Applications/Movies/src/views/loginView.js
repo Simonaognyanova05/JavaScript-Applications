@@ -1,4 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import * as authService from '../services/authService.js'; 
 
 const loginTemplate = (loginHandler) => html`
 <div class="login-page">
@@ -23,7 +24,8 @@ export const loginView = (ctx) => {
         e.preventDefault();
 
         let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
-        console.log(email, password);
+        authService.login(email, password)
+        .then(user => console.log('user is logged in'));
     }
     ctx.render(loginTemplate(loginHandler));
-}
+} 
