@@ -1,11 +1,11 @@
 import { render,html } from "../../node_modules/lit-html/lit-html.js";
-import { navigationView } from "../views/navigationView.js";
+import { navigationTemplate } from "../views/navigationView.js";
 
 const root = document.querySelector('#root');
 const ctxRender = (ctx, templateResult) => {
     let layout = html`
        <nav>
-       ${navigationView(ctx)}
+       ${navigationTemplate(ctx.isAuthenticated)}
        </nav>
        <main>
        ${templateResult}

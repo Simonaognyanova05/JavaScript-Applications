@@ -19,7 +19,7 @@ const privateLinks = html`
 </li>
 `;
 
-const navigationTemplate = (isAuthenticated) => html`
+export const navigationTemplate = (isAuthenticated) => html`
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Movies</a>
@@ -48,7 +48,3 @@ const navigationTemplate = (isAuthenticated) => html`
         </div>
     </nav>
 `;
-
-export const navigationView = (ctx) => {
-    return navigationTemplate(ctx.isAuthenticated);
-}
