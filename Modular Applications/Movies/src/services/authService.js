@@ -28,4 +28,18 @@ export const isAuthenticated = () => {
     let accessToken = localStorage.getItem('accessToken');
 
     return Boolean(accessToken);
-}
+};
+
+export const logout = () => {
+    let accessToken = localStorage.getItem('accessToken');
+
+    return fetch(`${baseUrl}/logout`, {
+        headers: {
+            'X-Authorization': accessToken
+        }
+    })
+    .then(res => {
+        console.log(res)
+        localStorage.clear();
+    });
+};
