@@ -30,6 +30,17 @@ export const isAuthenticated = () => {
     return Boolean(accessToken);
 };
 
+export const getUser = () => {
+    let username = localStorage.getItem('username');
+    let email = localStorage.getItem('email');
+
+    let user = {
+        username,
+        email
+    };
+    return user;
+}
+
 export const logout = () => {
     let accessToken = localStorage.getItem('accessToken');
 

@@ -5,7 +5,7 @@ const root = document.querySelector('#root');
 const ctxRender = (ctx, templateResult) => {
     let layout = html`
        <nav>
-       ${navigationTemplate(ctx.isAuthenticated)}
+       ${navigationTemplate(ctx)}
        </nav>
        <main>
        ${templateResult}

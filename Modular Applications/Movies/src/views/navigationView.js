@@ -1,4 +1,4 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 import * as authService from '../services/authService.js';
 
 const guestLinks = html`
@@ -19,7 +19,8 @@ const privateLinks = html`
 </li>
 `;
 
-export const navigationTemplate = (isAuthenticated) => html`
+
+export const navigationTemplate = ({user, isAuthenticated}) => html`
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Movies</a>
@@ -35,11 +36,17 @@ export const navigationTemplate = (isAuthenticated) => html`
                     </li>
                     
                     ${isAuthenticated
-        ? privateLinks
-        : guestLinks
-    }
-                    
+                      ? privateLinks
+                      : guestLinks
+                    }  
                 </ul>
+                ${isAuthenticated 
+                    ? html`
+                    <div class="nav-item">
+                        <span class="nav-link disabled">${user.username}</span>
+                    </div>
+                    `
+                    : nothing }
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
