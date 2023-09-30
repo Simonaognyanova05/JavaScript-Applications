@@ -1,5 +1,23 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import * as authService from '../services/authService.js'; 
+import * as authService from '../services/authService.js';
+
+const guestLinks = html`
+<li class="nav-item">
+    <a class="nav-link" href="/login">Login</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/register">Register</a>
+</li>
+`;
+
+const privateLinks = html`
+<li class="nav-item">
+    <a class="nav-link" href="/collection">My Collection</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/logout">Logout</a>
+</li>
+`;
 
 const navigationTemplate = (isAuthenticated) => html`
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -15,23 +33,11 @@ const navigationTemplate = (isAuthenticated) => html`
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/collection">My Collection</a>
-                    </li>
-                    ${isAuthenticated 
-                    ? html`
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                    `
-                    : html`
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
-                    </li>
-                    `}
+                    
+                    ${isAuthenticated
+        ? privateLinks
+        : guestLinks
+    }
                     
                 </ul>
                 <form class="d-flex" role="search">
@@ -44,5 +50,5 @@ const navigationTemplate = (isAuthenticated) => html`
 `;
 
 export const navigationView = (ctx) => {
-   return navigationTemplate(ctx.isAuthenticated);
+    return navigationTemplate(ctx.isAuthenticated);
 }
