@@ -24,6 +24,21 @@ export const login = (email, password) => {
         return user;
     })
 };
+export const register = (email, username, password) => {
+    return fetch(`${baseUrl}/register`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({email, username, password})
+    })
+    .then(res => res.json())
+    .then(user => {
+        save(user);
+
+        return user;
+    })
+};
 export const isAuthenticated = () => {
     let accessToken = localStorage.getItem('accessToken');
 
