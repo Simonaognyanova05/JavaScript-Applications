@@ -1,9 +1,20 @@
-import { render } from "../../node_modules/lit-html/lit-html.js";
+import { render,html } from "../../node_modules/lit-html/lit-html.js";
+import { navigationView } from "../views/navigationView.js";
 
 const root = document.querySelector('#root');
-const ctxRender = (templateResult) => render(templateResult, root);
+const ctxRender = (ctx, templateResult) => {
+    let layout = html`
+       <nav>
+       ${navigationView(ctx)}
+       </nav>
+       <main>
+       ${templateResult}
+       </main>
+    `;
+    render(layout, root);
+};
 
 export const renderMiddleWare = (ctx, next) => {
-    ctx.render = ctxRender;
+    ctx.render = ctxRender.bind(null, ctx);
     next();
 }

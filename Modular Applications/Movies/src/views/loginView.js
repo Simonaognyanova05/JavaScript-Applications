@@ -1,5 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import * as authService from '../services/authService.js'; 
+import * as authService from '../services/authService.js';
 
 const loginTemplate = (loginHandler) => html`
 <div class="login-page">
@@ -20,12 +20,15 @@ const loginTemplate = (loginHandler) => html`
 `;
 
 export const loginView = (ctx) => {
-    const loginHandler = (e) => {
-        e.preventDefault();
+  const loginHandler = (e) => {
+    e.preventDefault();
 
-        let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
-        authService.login(email, password)
-        .then(user => console.log('user is logged in'));
-    }
-    ctx.render(loginTemplate(loginHandler));
+    let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
+    authService.login(email, password)
+      .then(user => {
+        ctx.page.redirect('/');
+        console.log('user is logged in')
+      });
+  }
+  ctx.render(loginTemplate(loginHandler));
 } 
