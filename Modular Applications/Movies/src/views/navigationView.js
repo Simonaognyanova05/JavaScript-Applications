@@ -1,5 +1,5 @@
+import page from '../../node_modules/page/page.mjs';
 import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
-import * as authService from '../services/authService.js';
 
 const guestLinks = html`
 <li class="nav-item">
@@ -18,7 +18,6 @@ const privateLinks = html`
     <a class="nav-link" href="/logout">Logout</a>
 </li>
 `;
-
 
 export const navigationTemplate = ({user, isAuthenticated}) => html`
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -47,10 +46,6 @@ export const navigationTemplate = ({user, isAuthenticated}) => html`
                     </div>
                     `
                     : nothing }
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
