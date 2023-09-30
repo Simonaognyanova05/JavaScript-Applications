@@ -23,4 +23,9 @@ export const login = (email, password) => {
 
         return user;
     })
+};
+export const isAuthenticated = () => {
+    let accessToken = localStorage.getItem('accessToken');
+
+    return Boolean(accessToken);
 }

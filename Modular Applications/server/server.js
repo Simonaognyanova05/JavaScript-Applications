@@ -1537,7 +1537,7 @@
                 "director": "Bryan Singer",
                 "actors": "Tom Cruise, Kenneth Branagh, Bill Nighy, Tom Wilkinson",
                 "description": "A dramatization of the 20 July assassination and political coup plot by desperate renegade German Army officers against Hitler during World War II.",
-                "img": "http://ia.media-imdb.com/images/M/MV5BMTg3Njc2ODEyN15BMl5BanBnXkFtZTcwNTAwMzc3NA@@._V1_SX300.jpg"
+                "img": "https://m.media-amazon.com/images/I/81VWkOqQn0L._AC_UF1000,1000_QL80_.jpg"
             },
             "6":{
                 "_id": 6,
@@ -1586,7 +1586,7 @@
                 "director": "Christopher Nolan",
                 "actors": "Guy Pearce, Carrie-Anne Moss, Joe Pantoliano, Mark Boone Junior",
                 "description": "A man juggles searching for his wife's murderer and keeping his short-term memory loss from being an obstacle.",
-                "img": "https://images-na.ssl-images-amazon.com/images/M/MV5BNThiYjM3MzktMDg3Yy00ZWQ3LTk3YWEtN2M0YmNmNWEwYTE3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                "img": "https://m.media-amazon.com/images/I/61cmSdnKJWL._AC_UF1000,1000_QL80_.jpg"
             },
             "9":{
                 "_id": 9,
@@ -1603,7 +1603,7 @@
                 "director": "Olivier Nakache, Eric Toledano",
                 "actors": "François Cluzet, Omar Sy, Anne Le Ny, Audrey Fleurot",
                 "description": "After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.",
-                "img": "http://ia.media-imdb.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_SX300.jpg"
+                "img": "https://static.tvtropes.org/pmwiki/pub/images/image_0482.jpeg"
             },
             "10":{
                 "_id": 10,
