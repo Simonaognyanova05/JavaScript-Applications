@@ -1,3 +1,5 @@
+import page from '../../node_modules/page/page.mjs';
+
 export const login = (email, password) => {
     return fetch('http://localhost:3030/users/login', {
         method: 'POST',
@@ -7,5 +9,7 @@ export const login = (email, password) => {
         body: JSON.stringify({ email, password })
     })
         .then(res => res.json())
-        .then(() => alert('Success'));
+        .then(() => {
+            page.redirect('/');
+        });
 }
