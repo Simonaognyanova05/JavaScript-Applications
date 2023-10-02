@@ -10,6 +10,9 @@ export const login = (email, password) => {
     })
         .then(res => res.json())
         .then(() => {
+            document.querySelector('#login').style.display = 'none';
+            document.querySelector('#register').style.display = 'none';
+            document.querySelector('#tasks').style.display = 'block';
             page.redirect('/');
         });
 }
