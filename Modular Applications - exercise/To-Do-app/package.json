@@ -1,19 +1,31 @@
 {
-  "name": "to-do-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server",
-    "server": "cd ../server && node ./server.js"
+  "name": "@socket.io/component-emitter",
+  "description": "Event emitter",
+  "version": "3.1.0",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "lit-html": "^2.8.0",
-    "lite-server": "^2.6.1",
-    "page": "^1.11.6"
-  }
+  "component": {
+    "scripts": {
+      "emitter/index.js": "index.js"
+    }
+  },
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/socketio/emitter.git"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "files": [
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "LICENSE"
+  ]
 }

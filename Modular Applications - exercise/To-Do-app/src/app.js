@@ -1,6 +1,6 @@
 import page from '../node_modules/page/page.mjs';
-import { navbarTemplate } from './templates/navbarTemplate.js';
+import { homeView } from './template/homeTemplate.js';
 
-page('', navbarTemplate);
+page('/', homeView);
 
 page.start();
