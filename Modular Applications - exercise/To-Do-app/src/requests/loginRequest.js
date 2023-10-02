@@ -9,10 +9,6 @@ export const login = (email, password) => {
         body: JSON.stringify({ email, password })
     })
         .then(res => res.json())
-        .then(() => {
-            document.querySelector('#login').style.display = 'none';
-            document.querySelector('#register').style.display = 'none';
-            document.querySelector('#tasks').style.display = 'block';
-            page.redirect('/');
-        });
+        .then(() => {console.log('logged in')});
+        
 }
