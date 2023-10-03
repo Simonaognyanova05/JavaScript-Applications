@@ -9,6 +9,9 @@ export const login = (email, password) => {
         body: JSON.stringify({ email, password })
     })
         .then(res => res.json())
-        .then(() => {console.log('logged in')});
+        .then(() => {
+            page.redirect('/');
+            console.log('logged in')
+        });
         
 }
