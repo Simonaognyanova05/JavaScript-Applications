@@ -9,7 +9,7 @@ const loggedUsers = () => html`
 
 const guestUsers = () => html`
 <div class="guest">
-            <a href="#">Login</a>
+            <a href="/login">Login</a>
             <a href="#">Register</a>
             
           </div>
@@ -19,6 +19,8 @@ const permanentNav = () => html`
     <a href="/">Motorcycles</a>
     <a href="#">Search</a>
 </div>  
+
+${guestUsers()}
 `;
 
 export const navView = () => {
