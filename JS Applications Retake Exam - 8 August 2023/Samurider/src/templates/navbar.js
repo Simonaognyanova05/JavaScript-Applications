@@ -16,7 +16,7 @@ const guestUsers = () => html`
 `;
 const permanentNav = () => html`
 <div>
-    <a href="test.html">Motorcycles</a>
+    <a href="/">Motorcycles</a>
     <a href="#">Search</a>
 </div>  
 `;
