@@ -14,5 +14,5 @@ const homeTemplate = () => html`
 
 export const homeView = () => {
     document.querySelector('main').innerHTML = '';
-    render(homeTemplate(()))
+    render(homeTemplate(), document.querySelector('main'));
 }
