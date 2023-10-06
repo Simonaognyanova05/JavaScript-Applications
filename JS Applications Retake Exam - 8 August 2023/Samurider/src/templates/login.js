@@ -1,4 +1,4 @@
-import { html, render } from '../node_modules/lit-html/lit-html.js';
+import { html, render } from '../../node_modules/lit-html/lit-html.js';
 
 const loginTemplate = () => html`
 <section id="login">
@@ -22,6 +22,5 @@ const loginTemplate = () => html`
 `;
 
 export const loginView = () => {
-    document.querySelector('main').innerHTML = '';
-    render(loginTemplate(), document.querySelector('main'));
+    render(loginTemplate(), document.querySelector('#wrapper main'));
 }

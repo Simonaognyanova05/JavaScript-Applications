@@ -1,4 +1,4 @@
-import { html, render } from '../node_modules/lit-html/lit-html.js';
+import { html, render } from '../../node_modules/lit-html/lit-html.js';
 
 const homeTemplate = () => html`
 <section id="home">
@@ -13,6 +13,5 @@ const homeTemplate = () => html`
 `;
 
 export const homeView = () => {
-    document.querySelector('main').innerHTML = '';
-    render(homeTemplate(), document.querySelector('main'));
+    render(homeTemplate(), document.querySelector('#wrapper main'));
 }
