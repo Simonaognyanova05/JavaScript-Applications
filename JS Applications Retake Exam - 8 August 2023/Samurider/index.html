@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=\, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <script src="src/app.js" type="module"></script>
     <title>Samurider</title>
   </head>
   <body>
@@ -17,12 +16,37 @@
         /></a>
 
         <nav>
+          <div>
+            <a href="#">Motorcycles</a>
+            <a href="#">Search</a>
+          </div>
+
+          <!-- Logged-in users -->
+          <div class="user">
+            <a href="#">Add Motorcycle</a>
+            <a href="#">Logout</a>
+          </div>
+
+          <!-- Guest users -->
+          <div class="guest">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+            
+          </div>
         </nav>
       </header>
 
       <main>
         <!-- Home page -->
+        <section id="home">
+          <h1>
+            Welcome to <span>Samurider</span> moto market, your premier destination for Japanese motorcycles.</h1>
+          <img
+            src="./images/motorcycle.png"
+            alt="home"
+          />
 
+        </section>
 
         <!-- Dashboard page -->
         <h2>Available Motorcycles</h2>
