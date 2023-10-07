@@ -5,6 +5,5 @@ const noUsersTemplate = () => html`
 `;
 
 export const noUsersView = () => {
-    document.querySelector('main').innerHTML = '';
     render(noUsersTemplate(), document.querySelector('main'));
 }

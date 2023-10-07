@@ -32,6 +32,5 @@ const dashboardTemplate = () => html`
 `;
 
 export const dashboardView = () => {
-    document.querySelector('main').innerHTML = '';
     render(dashboardTemplate(), document.querySelector('main'));
 }

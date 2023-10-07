@@ -26,6 +26,5 @@ const detailsTemplate = () => html`
 `;
 
 export const detailsView = () => {
-    document.querySelector('main').innerHTML = '';
     render(detailsTemplate(), document.querySelector('main'));
 }

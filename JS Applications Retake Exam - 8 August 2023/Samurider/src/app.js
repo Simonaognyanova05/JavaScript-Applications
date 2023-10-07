@@ -5,12 +5,11 @@ import { detailsView } from "./templates/details.js";
 import { editView } from "./templates/edit.js";
 import { homeView } from "./templates/homePage.js";
 import { loginView } from "./templates/login.js";
-import { navbarView } from "./templates/navbar.js";
 import { noUsersView } from "./templates/noUsers.js";
 import { registerView } from "./templates/register.js";
 import { searchView } from "./templates/search.js";
 
-navbarView();
+
 page('/', homeView);
 page('/dashboard', dashboardView);
 page('/nousers', noUsersView);

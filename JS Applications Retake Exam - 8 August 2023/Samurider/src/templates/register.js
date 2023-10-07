@@ -31,6 +31,5 @@ const registerTemplate = () => html`
 `;
 
 export const registerView = () => {
-    document.querySelector('main').innerHTML = '';
     render(registerTemplate(), document.querySelector('main'));
 }

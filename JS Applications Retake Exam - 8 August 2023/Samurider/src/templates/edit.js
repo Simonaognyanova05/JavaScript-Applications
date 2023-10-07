@@ -51,6 +51,5 @@ const editTemplate = () => html`
 `;
 
 export const editView = () => {
-    document.querySelector('main').innerHTML = '';
     render(editTemplate(), document.querySelector('main'));
 }

@@ -50,6 +50,5 @@ const createTemplate = () => html`
 `;
 
 export const createView = () => {
-    document.querySelector('main').innerHTML = '';
     render(createTemplate(), document.querySelector('main'));
 }
