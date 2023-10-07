@@ -1,10 +1,12 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { login } from '../requests/loginReq.js';
+
 
 const loginTemplate = () => html`
 <section id="login">
           <div class="form">
             <h2>Login</h2>
-            <form class="login-form">
+            <form class="login-form" @submit=${login}>
               <input type="text" name="email" id="email" placeholder="email" />
               <input
                 type="password"
@@ -14,7 +16,7 @@ const loginTemplate = () => html`
               />
               <button type="submit">login</button>
               <p class="message">
-                Not registered? <a href="#">Create an account</a>
+                Not registered? <a href="/register">Create an account</a>
               </p>
             </form>
           </div>
@@ -22,5 +24,5 @@ const loginTemplate = () => html`
 `;
 
 export const loginView = () => {
-    render(loginTemplate(), document.querySelector('#wrapper main'));
+  render(loginTemplate(), document.querySelector('#wrapper main'));
 }
