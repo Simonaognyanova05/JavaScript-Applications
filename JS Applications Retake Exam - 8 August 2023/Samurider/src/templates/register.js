@@ -1,10 +1,11 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { register } from '../requests/registerReq.js';
 
 const registerTemplate = () => html`
 <section id="register">
           <div class="form">
             <h2>Register</h2>
-            <form class="register-form">
+            <form class="register-form" @submit=${register}>
               <input
                 type="text"
                 name="email"
