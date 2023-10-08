@@ -1,8 +1,9 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import * as authService from '../services/authService.js';
 
-const loginTemplate = () => html`
+const loginTemplate = (submitHandler) => html`
 <section id="loginPage">
-            <form>
+            <form @submit=${submitHandler}>
                 <fieldset>
                     <legend>Login</legend>
 
@@ -23,5 +24,15 @@ const loginTemplate = () => html`
 `;
 
 export const loginView = (ctx) => {
-    ctx.render(loginTemplate());
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const { email, password} = Object.fromEntries(new FormData(e.currentTarget));
+
+        authService.login(email, password)
+        .then(() => {
+            ctx.page.redirect('/');
+        })
+    }
+    ctx.render(loginTemplate(submitHandler));
 }

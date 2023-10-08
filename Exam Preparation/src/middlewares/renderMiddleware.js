@@ -1,5 +1,4 @@
 import { render } from '../../node_modules/lit-html/lit-html.js';
-import { loginView } from '../views/loginView.js';
 import { navigationView } from '../views/navigationView.js';
 
 const headerElement = document.querySelector('.header-navigation');
