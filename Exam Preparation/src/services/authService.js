@@ -22,3 +22,11 @@ export const login = (email, password) => {
         return user;
     })
 }
+
+export const register = (email, password) => {
+    return request.post(`${baseUrl}/register`, {email, password})
+    .then(user => {
+        saveUser(user);
+        return user;
+    })
+}
