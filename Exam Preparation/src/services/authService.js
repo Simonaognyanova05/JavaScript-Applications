@@ -6,6 +6,15 @@ const saveUser = (user) => {
         localStorage.setItem('user', JSON.stringify(user));
     }
 }
+
+export const getUser = () => {
+    let serializedUser = localStorage.getItem('user');
+
+    if(serializedUser){
+        let user = JSON.parse(serializedUser);
+        return user;
+    }
+}
 export const login = (email, password) => {
     return request.post(`${baseUrl}/login`, {email, password})
     .then(user => {
