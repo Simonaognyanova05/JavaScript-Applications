@@ -1,6 +1,18 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 
-export const navTemplate = () => html`
+const notAuthenticated = html`
+<li class="nav-item">
+  <a class="nav-link" href="#">Not authenticated</a>
+</li>
+`;
+
+const authenticated = html`
+<li class="nav-item">
+  <a class="nav-link" href="#">Is authenticated</a>
+ </li>
+`;
+
+export const navTemplate = (isAuthenticated) => html`
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -12,15 +24,12 @@ export const navTemplate = () => html`
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
+          
+          ${isAuthenticated 
+            ? authenticated
+            : notAuthenticated}
         </ul>
       </div>
     </div>
   </nav>
 `;
-
