@@ -7,6 +7,10 @@ const saveUser = (user) => {
     }
 }
 
+const deleteUser = () => {
+    localStorage.removeItem('user');
+}
+
 export const getUser = () => {
     let serializedUser = localStorage.getItem('user');
 
@@ -14,6 +18,10 @@ export const getUser = () => {
         let user = JSON.parse(serializedUser);
         return user;
     }
+}
+
+const getToken = () => {
+    return getUser()?.accessToken;
 }
 export const login = (email, password) => {
     return request.post(`${baseUrl}/login`, {email, password})
@@ -30,3 +38,8 @@ export const register = (email, password) => {
         return user;
     })
 }
+export const logout = () => 
+    fetch(`${baseUrl}/logout`, {headers: {'X-Authorization': getToken()}})
+    .then(() => {
+        deleteUser();
+    });
