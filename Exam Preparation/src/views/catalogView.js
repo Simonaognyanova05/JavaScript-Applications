@@ -1,4 +1,4 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 import * as albumService from '../services/albumService.js';
 
 const albumTemplate = (album) => html`
@@ -25,9 +25,11 @@ const catalogTemplate = (albums) => html`
 
            ${albums.map(x => albumTemplate(x))}
 
-            <!--No albums in catalog-->
-            <p>No Albums in Catalog!</p>
 
+           ${albums.lenght == 0
+             ? html`<p>No Albums in Catalog!</p>`
+            : nothing }
+        
         </section>
 `;
 
