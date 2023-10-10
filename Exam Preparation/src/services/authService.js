@@ -20,7 +20,7 @@ export const getUser = () => {
     }
 }
 
-const getToken = () => {
+export const getToken = () => {
     return getUser()?.accessToken;
 }
 export const login = (email, password) => {
