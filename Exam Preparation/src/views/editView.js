@@ -39,6 +39,9 @@ const editTemplate = (album, submitHandler) => html`
 
 export const editView = (ctx) => {
     const submitHandler = (e) => {
+        e.preventDefault();
+
+        
         console.log('edit');
     }
     albumService.getOne(ctx.params.albumId)
