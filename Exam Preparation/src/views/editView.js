@@ -1,5 +1,7 @@
 import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 import * as albumService from '../services/albumService.js';
+import { albumIsInvalid } from '../utils/validators.js';
+
 
 const editTemplate = (album, submitHandler) => html`
 <section class="editPage">
@@ -12,7 +14,7 @@ const editTemplate = (album, submitHandler) => html`
             <input id="name" name="name" value=${album.name} class="name" type="text" value="In These Silent Days">
 
             <label for="imgUrl" class="vhide">Image Url</label>
-            <input id="imgUrl" name="imgUrl" value=${album.img} class="imgUrl" type="text" value="./img/BrandiCarlile.png">
+            <input id="imgUrl" name="imgUrl" value=${album.imgUrl} class="imgUrl" type="text" value="./img/BrandiCarlile.png">
 
             <label for="price" class="vhide">Price</label>
             <input id="price" name="price" value=${album.price} class="price" type="text" value="12.80">
@@ -41,10 +43,17 @@ export const editView = (ctx) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
+        let albumId = ctx.params.albumId;
         const albumData = Object.fromEntries(new FormData(e.currentTarget));
-
+        if(albumIsInvalid(albumData)){
+            alert('All fields should be filled')
+            return;
+        }
         
-        console.log('edit');
+        albumService.edit(albumId, albumData)
+        .then(() => {
+            ctx.page.redirect(`/albums/${albumId}`);
+        })
     }
     albumService.getOne(ctx.params.albumId)
         .then(album => {
