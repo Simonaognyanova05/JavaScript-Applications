@@ -11,22 +11,22 @@ const editTemplate = (album, submitHandler) => html`
 
         <div class="container">
             <label for="name" class="vhide">Album name</label>
-            <input id="name" name="name" value=${album.name} class="name" type="text" value="In These Silent Days">
+            <input id="name" name="name" value=${album.name} class="name" type="text">
 
             <label for="imgUrl" class="vhide">Image Url</label>
-            <input id="imgUrl" name="imgUrl" value=${album.imgUrl} class="imgUrl" type="text" value="./img/BrandiCarlile.png">
+            <input id="imgUrl" name="imgUrl" value=${album.imgUrl} class="imgUrl" type="text">
 
             <label for="price" class="vhide">Price</label>
-            <input id="price" name="price" value=${album.price} class="price" type="text" value="12.80">
+            <input id="price" name="price" value=${album.price} class="price" type="text">
 
             <label for="releaseDate" class="vhide">Release date</label>
-            <input id="releaseDate" name="releaseDate" value=${album.releaseDate} class="releaseDate" type="text" value="October 1, 2021">
+            <input id="releaseDate" name="releaseDate" value=${album.releaseDate} class="releaseDate" type="text">
 
             <label for="artist" class="vhide">Artist</label>
-            <input id="artist" name="artist" value=${album.artist} class="artist" type="text" value="Brandi Carlile">
+            <input id="artist" name="artist" value=${album.artist} class="artist" type="text">
 
             <label for="genre" class="vhide">Genre</label>
-            <input id="genre" name="genre" value=${album.genre} class="genre" type="text" value="Low Country Sound Music">
+            <input id="genre" name="genre" value=${album.genre} class="genre" type="text">
 
             <label for="description" class="vhide">Description</label>
             <textarea name="description" class="description" rows="10"
