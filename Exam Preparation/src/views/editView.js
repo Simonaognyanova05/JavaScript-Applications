@@ -41,6 +41,8 @@ export const editView = (ctx) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
+        const albumData = Object.fromEntries(new FormData(e.currentTarget));
+
         
         console.log('edit');
     }
