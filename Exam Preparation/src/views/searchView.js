@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 
-<head>
-    <meta charset="UTF-8" />
-    <title>My Music Application</title>
-    <link rel="stylesheet" href="/styles/style.css"/>
-</head>
-
-<body>
-
-    <div id="box">
-        <!--Search Page-->
-        <section id="searchPage">
+const searchTemplate = () => html`
+<section id="searchPage">
             <h1>Search by Name</h1>
 
             <div class="search">
@@ -45,12 +35,4 @@
             </div>
         </section>
 
-        <footer>
-            <div>
-                &copy;SoftUni Team 2021. All rights reserved.
-            </div>
-        </footer>
-    </div>
-</body>
-
-</html>
+`;
