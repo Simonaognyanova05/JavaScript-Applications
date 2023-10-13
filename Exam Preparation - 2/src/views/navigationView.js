@@ -16,9 +16,9 @@ const guestUsers = html`
 `;
 
 const navbarTemplate = (user) => html`
-<h1><a class="home" href="#">GamesPlay</a></h1>
+<h1><a class="home" href="/">GamesPlay</a></h1>
 <nav>
-    <a href="#">All games</a>
+    <a href="/catalog">All games</a>
 
     ${user
       ? loggedUsers

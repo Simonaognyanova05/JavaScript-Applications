@@ -1,9 +1,9 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-
+import { loginReq } from '../requests/requests.js';
 
 const mainElement = document.querySelector('#main-content');
 
-const loginTemplate = () => html`
+const loginTemplate = (submitHandler) => html`
 <section id="login-page" class="auth">
 <form id="login">
 
@@ -15,7 +15,7 @@ const loginTemplate = () => html`
 
         <label for="login-pass">Password:</label>
         <input type="password" id="login-password" name="password">
-        <input type="submit" class="btn submit" value="Login">
+        <input type="submit" class="btn submit" value="Login" @click=${submitHandler}>
         <p class="field">
             <span>If you don't have profile click <a href="#">here</a></span>
         </p>
@@ -25,5 +25,19 @@ const loginTemplate = () => html`
 `;
 
 export const loginView = (ctx) => {
-    render(loginTemplate(), mainElement)
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        let email = document.querySelector('#email');
+        let password = document.querySelector('#login-password');
+
+        loginReq(email.value, password.value)
+        .then(() => {
+            ctx.page.redirect('/');
+        })
+        .catch(err => {
+            alert(err);
+        })
+    }
+    render(loginTemplate(submitHandler), mainElement)
 }
