@@ -15,6 +15,7 @@ const guestUsers = html`
 </div>
 `;
 
+
 const navbarTemplate = (user) => html`
 <h1><a class="home" href="/">GamesPlay</a></h1>
 <nav>
