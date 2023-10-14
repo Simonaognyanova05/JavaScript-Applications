@@ -1,5 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { loginReq } from '../requests/requests.js';
+import { loginReq } from '../services/requests.js';
 
 const mainElement = document.querySelector('#main-content');
 
