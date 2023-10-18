@@ -3,21 +3,21 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 
 const loggedUsers = html`
 <div id="user">
-    <a href="#">Create Game</a>
-    <a href="#">Logout</a>
+    <a href="/create">Create Game</a>
+    <a href="/logout">Logout</a>
 </div>
 `;
 
 const guestUsers = html`
 <div id="guest">
-<a href="#">Login</a>
-<a href="#">Register</a>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
 </div>
 `;
 const navigationTemplate = (user) => html`
 <h1><a class="home" href="#">GamesPlay</a></h1>
 <nav>
-    <a href="#">All games</a>
+    <a href="/">All games</a>
    
     ${user
       ? loggedUsers
