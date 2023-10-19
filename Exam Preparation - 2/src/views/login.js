@@ -27,17 +27,5 @@ const loginTemplate = (submitHandler) => html`
 `;
 
 export const loginView = (ctx) => {
-    const submitHandler = (e) => {
-        e.preventDefault();
-
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('login-password').value;
-
-       login(email, password)
-        .then(user => {
-            ctx.page.redirect('/');
-        })
-    }
-
-    render(loginTemplate(submitHandler), mainElement);
+    render(loginTemplate(), mainElement);
 }
