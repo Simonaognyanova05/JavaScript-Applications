@@ -12,6 +12,7 @@ import { registerView } from "./views/register.js";
 
 page(authMiddleware);
 page(renderMiddleware);
+
 page('/', homeView);
 page('/login', loginView);
 page('/register', registerView);

@@ -1,5 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import * as authService from '../services/authService.js';
+import { login } from '../services/requests.js';
 
 const loginTemplate = (submitHandler) => html`
 <section id="login-page" class="auth">
@@ -29,12 +29,10 @@ export const loginView = (ctx) => {
         let email = document.getElementById('email').value;
         let password = document.getElementById('login-password').value;
 
-        authService.login(email, password)
+        login(email, password)
         .then(() => {
             ctx.page.redirect('/'); 
         })
-        console.log(email, password);
-
     }
     render(loginTemplate(submitHandler), document.querySelector('#main-content'));
 }
