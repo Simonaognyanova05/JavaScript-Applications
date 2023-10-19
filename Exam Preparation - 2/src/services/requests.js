@@ -13,4 +13,22 @@ export const login = (email, password) => {
         authService.saveUSer(user);
         return user;
     })
+    .catch(err => alert(err))
+
+}
+
+export const register = (email, password) => {
+    return fetch('http://localhost:3030/users/register', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({email, password})
+    })
+    .then(res => res.json())
+    .then(user => {
+        authService.saveUSer(user);
+        return user;
+    })
+    .catch(err => alert(err))
 }
