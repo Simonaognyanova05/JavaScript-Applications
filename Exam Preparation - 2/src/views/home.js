@@ -55,7 +55,7 @@ const homeTemplate = () => html`
             </div>
         </section>
 `;
- 
+
 export const homeView = () => {
     render(homeTemplate(), document.querySelector('#main-content'));
 }
