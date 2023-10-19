@@ -1,6 +1,5 @@
 import page from "../node_modules/page/page.mjs";
 import { authMiddleware } from "./middlewares/authMiddleware.js";
-
 import { renderMiddleware } from "./middlewares/renderMiddleware.js";
 import { catalogView } from "./views/catalog.js";
 import { createView } from "./views/create.js";

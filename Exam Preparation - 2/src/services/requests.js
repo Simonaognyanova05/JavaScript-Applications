@@ -43,3 +43,8 @@ export const logout = () => {
         authService.deleteUser();
     })
 }
+
+export const games = () => {
+    return fetch(`${baseUrl}/data/games?sortBy=_createdOn%20desc`)
+    .then(res => res.json());
+}

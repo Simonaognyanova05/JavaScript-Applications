@@ -1,41 +1,32 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { games } from '../services/requests.js';
 
-const catalogTemplate = () => html`
+const ifHasGames = (game) => html`
+<div class="allGames">
+    <div class="allGames-info">
+        <img src=${game.imageUrl}>
+        <h6>Action</h6>
+        <h2>${game.title}</h2>
+        <a href="#" class="details-button">Details</a>
+    </div>
+</div>
+`;
+
+const noGame = html`
+<h3 class="no-articles">No articles yet</h3>
+`;
+const catalogTemplate = (games) => html`
 <section id="catalog-page">
-            <h1>All Games</h1>
-            <!-- Display div: with information about every game (if any) -->
-            <div class="allGames">
-                <div class="allGames-info">
-                    <img src="./images/avatar-1.jpg">
-                    <h6>Action</h6>
-                    <h2>Cover Fire</h2>
-                    <a href="#" class="details-button">Details</a>
-                </div>
-
-            </div>
-            <div class="allGames">
-                <div class="allGames-info">
-                    <img src="./images/avatar-1.jpg">
-                    <h6>Action</h6>
-                    <h2>Zombie lang</h2>
-                    <a href="#" class="details-button">Details</a>
-                </div>
-
-            </div>
-            <div class="allGames">
-                <div class="allGames-info">
-                    <img src="./images/avatar-1.jpg">
-                    <h6>Action</h6>
-                    <h2>MineCraft</h2>
-                    <a href="#" class="details-button">Details</a>
-                </div>
-            </div>
-
-            <!-- Display paragraph: If there is no games  -->
-            <h3 class="no-articles">No articles yet</h3>
-        </section>
+    <h1>All Games</h1>
+    <!-- Display div: with information about every game (if any) -->
+    ${games ? games.map(x => ifHasGames(x)) : noGame}
+    <!-- Display paragraph: If there is no games  -->
+</section>
 `;
 
 export const catalogView = () => {
-    render(catalogTemplate(), document.querySelector('#main-content'));
+    games()
+    .then(result => {
+        render(catalogTemplate(result), document.querySelector('#main-content'));
+    })
 }
