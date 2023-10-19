@@ -21,6 +21,7 @@ const loginTemplate = () => html`
 </section>
 `;
 
-export const loginView = () => {
+export const loginView = (ctx) => {
+    
     render(loginTemplate(), document.querySelector('#main-content'));
 }
