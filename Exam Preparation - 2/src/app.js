@@ -5,7 +5,6 @@ import { homeView } from "./views/homeView.js";
 import { loginView } from "./views/login.js";
 
 page(renderMiddleware);
-page('/login', loginView);
 page('/', homeView);
 
 page.start();
