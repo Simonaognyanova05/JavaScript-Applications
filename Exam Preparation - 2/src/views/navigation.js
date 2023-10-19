@@ -19,9 +19,9 @@ const navigationTemplate = (user) => html`
 <nav>
     <a href="/">All games</a>
    
-    ${user
-      ? loggedUsers
-      : guestUsers}
+    ${loggedUsers}
+    ${guestUsers}
+
    
 </nav>
 `;
