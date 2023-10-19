@@ -4,6 +4,16 @@ const saveUSer = (user) => {
     }
 }
 
+export const getUser = () => {
+    let serializedUser = localStorage.getItem('user');
+    
+    if(serializedUser){
+        let user = JSON.parse(serializedUser);
+
+        return user;
+    }
+}
+
 export const login = (email, password) => {
     return fetch('http://localhost:3030/users/login', {
         method: 'POST',
