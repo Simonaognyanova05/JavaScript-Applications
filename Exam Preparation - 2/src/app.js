@@ -1,6 +1,7 @@
 import page from "../node_modules/page/page.mjs";
 
 import { renderMiddleware } from "./middlewares/renderMiddleware.js";
+import { catalogView } from "./views/catalog.js";
 import { createView } from "./views/create.js";
 import { detailsView } from "./views/details.js";
 import { editView } from "./views/edit.js";
@@ -15,5 +16,6 @@ page('/register', registerView);
 page('/create', createView);
 page('/edit', editView);
 page('/details', detailsView);
+page('/catalog', catalogView);
 
 page.start();
