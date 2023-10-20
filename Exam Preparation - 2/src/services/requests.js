@@ -1,9 +1,9 @@
 import * as authService from '../services/authService.js'
 
 
-let baseUrl = 'http://localhost:3030/';
+let baseUrl = 'http://localhost:3030/users';
 export const login = (email, password) => {
-    return fetch(`${baseUrl}users/login`, {
+    return fetch(`${baseUrl}/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -20,7 +20,7 @@ export const login = (email, password) => {
 }
 
 export const register = (email, password) => {
-    return fetch(`${baseUrl}users/register`, {
+    return fetch(`${baseUrl}/register`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -36,7 +36,7 @@ export const register = (email, password) => {
 }
 
 export const logout = () => {
-    return fetch(`${baseUrl}users/logout`, {
+    return fetch(`${baseUrl}/logout`, {
         'X-Authorization': authService.getToken()
     })
     .then(() => {
