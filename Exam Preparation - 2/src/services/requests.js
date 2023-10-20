@@ -8,14 +8,14 @@ export const login = (email, password) => {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({email, password})
+        body: JSON.stringify({ email, password })
     })
-    .then(res => res.json())
-    .then(user => {
-        authService.saveUser(user);
-        return user;
-    })
-    .catch(err => alert(err))
+        .then(res => res.json())
+        .then(user => {
+            authService.saveUser(user);
+            return user;
+        })
+        .catch(err => alert(err))
 
 }
 
@@ -25,31 +25,43 @@ export const register = (email, password) => {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({email, password})
+        body: JSON.stringify({ email, password })
     })
-    .then(res => res.json())
-    .then(user => {
-        authService.saveUser(user);
-        return user;
-    })
-    .catch(err => alert(err))
+        .then(res => res.json())
+        .then(user => {
+            authService.saveUser(user);
+            return user;
+        })
+        .catch(err => alert(err))
 }
 
 export const getAllGames = () => {
     return fetch(`${baseUrl}/data/games?sortBy=_createdOn%20desc`)
-    .then(res => res.json());
+        .then(res => res.json());
 }
 
 export const logout = () => {
     return fetch(`${baseUrl}/users/logout`, {
-        headers: {'X-Authorization': authService.getToken()}
+        headers: { 'X-Authorization': authService.getToken() }
     })
-    .then(() => {
-        authService.deleteUser();
-    })
+        .then(() => {
+            authService.deleteUser();
+        })
 }
 
 export const getHomeGames = () => {
     return fetch(`${baseUrl}/data/games?sortBy=_createdOn%20desc&distinct=category`)
+        .then(res => res.json());
+}
+
+export const createGame = (title, category, maxLevel, imageUrl, summary) => {
+    return fetch(`${baseUrl}/data/games`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken()
+        },
+        body: JSON.stringify({title, category, maxLevel, imageUrl, summary})
+    })
     .then(res => res.json());
 }
