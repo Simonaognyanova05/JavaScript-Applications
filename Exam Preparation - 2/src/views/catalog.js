@@ -9,7 +9,7 @@ const ifHasGames = (game) => html`
         <img src=${game.imageUrl}>
         <h6>Action</h6>
         <h2>${game.title}</h2>
-        <a href="#" class="details-button">Details</a>
+        <a href="/details" class="details-button">Details</a>
     </div>
 </div>
 `;
