@@ -1,9 +1,9 @@
 import * as authService from '../services/authService.js'
 
 
-let baseUrl = 'http://localhost:3030/users';
+let baseUrl = 'http://localhost:3030/';
 export const login = (email, password) => {
-    return fetch(`${baseUrl}/login`, {
+    return fetch(`${baseUrl}users/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -12,7 +12,7 @@ export const login = (email, password) => {
     })
     .then(res => res.json())
     .then(user => {
-        authService.saveUSer(user);
+        authService.saveUser(user);
         return user;
     })
     .catch(err => alert(err))
@@ -20,7 +20,7 @@ export const login = (email, password) => {
 }
 
 export const register = (email, password) => {
-    return fetch(`${baseUrl}/register`, {
+    return fetch(`${baseUrl}users/register`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -29,14 +29,14 @@ export const register = (email, password) => {
     })
     .then(res => res.json())
     .then(user => {
-        authService.saveUSer(user);
+        authService.saveUser(user);
         return user;
     })
     .catch(err => alert(err))
 }
 
 export const logout = () => {
-    return fetch(`${baseUrl}/logout`, {
+    return fetch(`${baseUrl}users/logout`, {
         'X-Authorization': authService.getToken()
     })
     .then(() => {
@@ -44,7 +44,7 @@ export const logout = () => {
     })
 }
 
-export const games = () => {
-    return fetch(`${baseUrl}/data/games?sortBy=_createdOn%20desc`)
+export const getAllGames = () => {
+    return fetch(`${baseUrl}data/games?sortBy=_createdOn%20desc`)
     .then(res => res.json());
 }

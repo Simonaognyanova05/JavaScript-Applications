@@ -1,5 +1,4 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-
 const createTemplate = () => html`
 <section id="create-page" class="auth">
 <form id="create">
@@ -26,6 +25,6 @@ const createTemplate = () => html`
 </section>
 `;
 
-export const createView = () => {
+export const createView = (ctx) => {
     render(createTemplate(), document.querySelector('#main-content'));
 }

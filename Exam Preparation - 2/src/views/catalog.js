@@ -1,5 +1,7 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { games } from '../services/requests.js';
+
+import { getAllGames } from '../services/requests.js';
+
 
 const ifHasGames = (game) => html`
 <div class="allGames">
@@ -19,14 +21,15 @@ const catalogTemplate = (games) => html`
 <section id="catalog-page">
     <h1>All Games</h1>
     <!-- Display div: with information about every game (if any) -->
+    
     ${games ? games.map(x => ifHasGames(x)) : noGame}
     <!-- Display paragraph: If there is no games  -->
 </section>
 `;
 
 export const catalogView = () => {
-    games()
-    .then(result => {
-        render(catalogTemplate(result), document.querySelector('#main-content'));
+    getAllGames()
+    .then(games => {
+        render(catalogTemplate(games), document.querySelector('#main-content'));
     })
 }
