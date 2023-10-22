@@ -53,15 +53,3 @@ export const getHomeGames = () => {
     return fetch(`${baseUrl}/data/games?sortBy=_createdOn%20desc&distinct=category`)
         .then(res => res.json());
 }
-
-export const createGame = (title, category, maxLevel, imageUrl, summary) => {
-    return fetch(`${baseUrl}/data/games`, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-            'X-Authorization': authService.getToken()
-        },
-        body: JSON.stringify({title, category, maxLevel, imageUrl, summary})
-    })
-    .then(res => res.json());
-}

@@ -1,7 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { createGame } from '../services/requests.js';
-
-const createTemplate = (submitHandler) => html`
+const createTemplate = () => html`
 <section id="create-page" class="auth">
 <form id="create">
     <div class="container">
@@ -21,29 +19,12 @@ const createTemplate = (submitHandler) => html`
 
         <label for="summary">Summary:</label>
         <textarea name="summary" id="summary"></textarea>
-        <input class="btn submit" type="submit" value="Create Game" @click=${submitHandler}>
+        <input class="btn submit" type="submit" value="Create Game">
     </div>
 </form>
 </section>
 `;
 
 export const createView = (ctx) => {
-    const submitHandler = (e) => {
-        e.preventDefault();
-
-        const title = document.getElementById('title').value;
-        const category = document.getElementById('category').value;
-        const maxLevel = document.getElementById('maxLevel').value;
-        const imageUrl = document.getElementById('imageUrl').value;
-        const summary = document.getElementById('summary').value;
-
-
-        createGame(title, category, maxLevel, imageUrl, summary)
-        .then(() => {
-            ctx.page.redirect('/');
-        })
-        console.log(title, category, maxLevel, imageUrl, summary);
-
-    }
-    render(createTemplate(submitHandler), document.querySelector('#main-content'));
+    render(createTemplate(), document.querySelector('#main-content'));
 }

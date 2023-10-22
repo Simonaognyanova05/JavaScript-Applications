@@ -31,12 +31,8 @@ const homeTemplate = (games) => html`
 
             <div id="home-page">
                 <h1>Latest Games</h1>
-
-                <!-- Display div: with information about every game (if any) -->
-               
+                
                 ${games ? games.map(x => hasGames(x)) : hasNotGames}
-                <!-- Display paragraph: If there is no games  -->
-              
             </div>
         </section>
 `;
