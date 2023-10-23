@@ -70,3 +70,15 @@ export const getOne = (gameId) => {
     return fetch(`${baseUrl}/data/games/${gameId}`)
     .then(res => res.json());
 }
+
+export const edit = (gameId, data) => {
+    return fetch(`${baseUrl}/data/games/${gameId}`, {
+        method: 'PUT',
+        headers:{
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken()
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json());
+}

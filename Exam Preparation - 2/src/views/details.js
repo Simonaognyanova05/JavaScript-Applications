@@ -13,10 +13,7 @@ const comment = html`
 
 `;
 const editAndDelete = html`
-<div class="buttons">
-        <a href="#" class="button">Edit</a>
-        <a href="#" class="button">Delete</a>
-    </div>
+
 `;
 const commentForEveryone = html`
 <div class="details-comments">
@@ -55,7 +52,10 @@ const detailsTemplate = (game) => html`
     <!-- Bonus ( for Guests and Users ) -->
 
     <!-- Edit/Delete buttons ( Only for creator of this game )  -->
-    
+    <div class="buttons">
+        <a href="/games/${game._id}/edit" class="button">Edit</a>
+        <a href="#" class="button">Delete</a>
+    </div>
 </div>
 
 <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) -->

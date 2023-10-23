@@ -17,10 +17,10 @@ page('/', homeView);
 page('/login', loginView);
 page('/register', registerView);
 page('/create', createView);
-page('/edit', editView);
 page('/catalog', catalogView);
 page('/logout', logoutView);
 page('/games/:gameId', detailsView);
+page('/games/:gameId/edit', editView);
 
 
 
