@@ -1,7 +1,9 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-const createTemplate = () => html`
+import { create } from '../services/requests.js';
+
+const createTemplate = (submitHandler) => html`
 <section id="create-page" class="auth">
-<form id="create">
+<form id="create" @submit=${submitHandler}>
     <div class="container">
 
         <h1>Create Game</h1>
@@ -26,5 +28,16 @@ const createTemplate = () => html`
 `;
 
 export const createView = (ctx) => {
-    render(createTemplate(), document.querySelector('#main-content'));
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.currentTarget));
+
+        create(data)
+        .then(() => {
+            ctx.page.redirect('/');
+        })
+        console.log(data);
+    }
+    render(createTemplate(submitHandler), document.querySelector('#main-content'));
 }
