@@ -82,3 +82,14 @@ export const edit = (gameId, data) => {
     })
     .then(res => res.json());
 }
+
+export const remove = (gameId) => {
+    return fetch(`${baseUrl}/data/games/${gameId}`, {
+        method: 'DELETE',
+        headers:{
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken()
+        }
+    })
+    .then(res => res.json());
+}

@@ -1,4 +1,4 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 import { getOne } from '../services/requests.js';
 
 
@@ -10,9 +10,6 @@ const comment = html`
         <input class="btn submit" type="submit" value="Add Comment">
     </form>
 </article>
-
-`;
-const editAndDelete = html`
 
 `;
 const commentForEveryone = html`
@@ -31,7 +28,7 @@ const commentForEveryone = html`
         <p class="no-comment">No comments.</p>
     </div>
 `;
-const detailsTemplate = (game) => html`
+const detailsTemplate = (game, user) => html`
 <section id="game-details">
 <h1>Game Details</h1>
 <div class="info-section">
@@ -47,15 +44,16 @@ const detailsTemplate = (game) => html`
         ${game.summary}
     </p>
 
-
-   
-    <!-- Bonus ( for Guests and Users ) -->
-
-    <!-- Edit/Delete buttons ( Only for creator of this game )  -->
-    <div class="buttons">
+    ${
+        user._id == game._ownerId
+        ? html`<div class="buttons">
         <a href="/games/${game._id}/edit" class="button">Edit</a>
-        <a href="#" class="button">Delete</a>
-    </div>
+        <a href="/games/${game._id}/delete" class="button">Delete</a>
+    </div>`
+    :nothing
+    
+    }
+    
 </div>
 
 <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) -->
@@ -64,10 +62,9 @@ ${comment}
 `;
 
 export const detailsView = (ctx) => {
-
     getOne(ctx.params.gameId)
     .then(game => {
-        render(detailsTemplate(game), document.querySelector('#main-content'));
+        render(detailsTemplate(game, ctx.user), document.querySelector('#main-content'));
     })
 
 

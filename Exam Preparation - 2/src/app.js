@@ -3,6 +3,7 @@ import { authMiddleware } from "./middlewares/authMiddleware.js";
 import { renderMiddleware } from "./middlewares/renderMiddleware.js";
 import { catalogView } from "./views/catalog.js";
 import { createView } from "./views/create.js";
+import { deleteView } from "./views/delete.js";
 import { detailsView } from "./views/details.js";
 import { editView } from "./views/edit.js";
 import { homeView } from "./views/home.js";
@@ -21,6 +22,7 @@ page('/catalog', catalogView);
 page('/logout', logoutView);
 page('/games/:gameId', detailsView);
 page('/games/:gameId/edit', editView);
+page('/games/:gameId/delete', deleteView);
 
 
 
