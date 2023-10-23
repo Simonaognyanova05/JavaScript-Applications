@@ -52,11 +52,12 @@ const detailsTemplate = () => html`
         to work with an Orc to find a weapon everyone is prepared to kill for.
     </p>
 
+
+   
     <!-- Bonus ( for Guests and Users ) -->
-    ${commentForEveryone}
 
     <!-- Edit/Delete buttons ( Only for creator of this game )  -->
-    ${editAndDelete}
+    
 </div>
 
 <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) -->
@@ -64,6 +65,10 @@ ${comment}
 </section>
 `;
 
-export const detailsView = () => {
+export const detailsView = (ctx) => {
+
     render(detailsTemplate(), document.querySelector('#main-content'));
+
+
+
 }
