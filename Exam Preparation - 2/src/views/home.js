@@ -12,7 +12,7 @@ const hasGames = (game) => html`
         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
     </div>
     <div class="data-buttons">
-        <a href="/details" class="btn details-btn">Details</a>
+        <a href="/games/${game._id}" class="btn details-btn">Details</a>
     </div>
 </div>
 `;

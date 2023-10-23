@@ -18,9 +18,10 @@ page('/login', loginView);
 page('/register', registerView);
 page('/create', createView);
 page('/edit', editView);
-page('/details', detailsView);
 page('/catalog', catalogView);
 page('/logout', logoutView);
+page('/games/:gameId', detailsView);
+
 
 
 page.start();
