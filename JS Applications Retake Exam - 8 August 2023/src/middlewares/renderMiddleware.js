@@ -3,7 +3,7 @@ import { navigationView } from '../views/navigation.js';
 
 const headElement = document.querySelector('header');
 
-export const renderNavigation = (ctx, next) => {
+export const renderMiddleware = (ctx, next) => {
     render(navigationView(ctx), headElement);
     next();
 }

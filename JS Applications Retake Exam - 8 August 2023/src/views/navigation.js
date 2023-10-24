@@ -22,12 +22,10 @@ const navigationTemplate = (user) => html`
   <a href="#">Search</a>
 </div>
 
-${user 
-? loggedUser
-:guestUser}
+${user ? loggedUser :guestUser}
 </nav>
 `;
 
 export const navigationView = (ctx) => {
-  return navigationTemplate();
+  return navigationTemplate(ctx.user);
 }
