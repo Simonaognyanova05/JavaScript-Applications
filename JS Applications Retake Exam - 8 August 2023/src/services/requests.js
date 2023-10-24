@@ -34,3 +34,12 @@ export const register = (email, password) => {
     })
     .catch(err => alert(err));
 } 
+
+export const logout = () => {
+    return fetch(`${baseUrl}/users/logout`,{
+        'X-Authorization': authService.getToken()
+    })
+    .then(() => {
+        authService.deleteUser();
+    })
+}

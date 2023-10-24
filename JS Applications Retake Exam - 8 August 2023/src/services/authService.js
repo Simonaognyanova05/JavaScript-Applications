@@ -17,3 +17,7 @@ export const getUser = () => {
 export const getToken = () => {
     return getUser?.accessToken;
 }
+
+export const deleteUser = () => {
+    localStorage.removeItem('user');
+}
