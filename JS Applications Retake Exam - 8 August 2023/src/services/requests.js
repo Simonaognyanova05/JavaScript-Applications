@@ -11,12 +11,12 @@ export const login = (data) => {
         },
         body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(user => {
-        authService.saveUser(user);
-        return user;
-    })
-    .catch(err => alert(err));
+        .then(res => res.json())
+        .then(user => {
+            authService.saveUser(user);
+            return user;
+        })
+        .catch(err => alert(err));
 }
 
 export const register = (email, password) => {
@@ -27,24 +27,36 @@ export const register = (email, password) => {
         },
         body: JSON.stringify({ email, password })
     })
-    .then(res => res.json())
-    .then(user => {
-        authService.saveUser(user);
-        return user;
-    })
-    .catch(err => alert(err));
-} 
+        .then(res => res.json())
+        .then(user => {
+            authService.saveUser(user);
+            return user;
+        })
+        .catch(err => alert(err));
+}
 
 export const logout = () => {
-    return fetch(`${baseUrl}/users/logout`,{
+    return fetch(`${baseUrl}/users/logout`, {
         'X-Authorization': authService.getToken()
     })
-    .then(() => {
-        authService.deleteUser();
-    })
+        .then(() => {
+            authService.deleteUser();
+        })
 }
 
 export const getAllMotorcicles = () => {
     return fetch(`${baseUrl}/data/motorcycles?sortBy=_createdOn%20desc`)
+        .then(res => res.json());
+}
+
+export const create = (data) => {
+    return fetch(`${baseUrl}/data/motorcycles`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken()
+        },
+        body: JSON.stringify(data)
+    })
     .then(res => res.json());
 }

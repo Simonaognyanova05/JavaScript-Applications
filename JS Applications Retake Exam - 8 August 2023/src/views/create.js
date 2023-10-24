@@ -1,11 +1,12 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { create } from '../services/requests.js';
 
-const createTemplate = () => html`
+const createTemplate = (submitHandler) => html`
   <section id="create">
         <h2>Add Motorcycle</h2>
         <div class="form">
           <h2>Add Motorcycle</h2>
-          <form class="create-form">
+          <form class="create-form" @submit=${submitHandler}> 
             <input type="text" name="model" id="model" placeholder="Model" />
             <input type="text" name="imageUrl" id="moto-image" placeholder="Moto Image" />
             <input type="number" name="year" id="year" placeholder="Year" />
@@ -18,6 +19,16 @@ const createTemplate = () => html`
       </section>
 `;
 
-export const createView = () => {
-    render(createTemplate(), document.querySelector('main'));
+export const createView = (ctx) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+
+    create(data)
+    .then(() => {
+      ctx.page.redirect('/dashboard');
+    })
+  }
+    render(createTemplate(submitHandler), document.querySelector('main'));
 }
