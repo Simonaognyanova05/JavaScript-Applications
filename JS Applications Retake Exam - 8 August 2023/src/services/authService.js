@@ -14,3 +14,6 @@ export const getUser = () => {
         return user;
     }
 }
+export const getToken = () => {
+    return getUser?.accessToken;
+}
