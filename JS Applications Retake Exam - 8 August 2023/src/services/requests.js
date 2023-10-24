@@ -43,3 +43,8 @@ export const logout = () => {
         authService.deleteUser();
     })
 }
+
+export const getAllMotorcicles = () => {
+    return fetch(`${baseUrl}/data/motorcycles?sortBy=_createdOn%20desc`)
+    .then(res => res.json());
+}
