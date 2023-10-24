@@ -2,7 +2,7 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 
 const loggedUser = html`
 <div class="user">
-  <a href="#">Add Motorcycle</a>
+  <a href="/dashboard">Add Motorcycle</a>
   <a href="#">Logout</a>
 </div>
 `;
