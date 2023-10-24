@@ -2,7 +2,7 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 
 const loggedUser = html`
 <div class="user">
-  <a href="/dashboard">Add Motorcycle</a>
+  <a href="/create">Add Motorcycle</a>
   <a href="#">Logout</a>
 </div>
 `;
@@ -18,7 +18,7 @@ const navigationTemplate = (user) => html`
 
 <nav>
 <div>
-  <a href="#">Motorcycles</a>
+  <a href="/dashboard">Motorcycles</a>
   <a href="#">Search</a>
 </div>
 
