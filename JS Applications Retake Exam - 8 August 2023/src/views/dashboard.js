@@ -10,7 +10,7 @@ const dashboardTemplate = () => html`
           <p class="year">Year: 2006</p>
           <p class="mileage">Mileage: 45000 km.</p>
           <p class="contact">Contact Number: 0881234567</p>
-          <a class="details-btn" href="#">More Info</a>
+          <a class="details-btn" href="/details">More Info</a>
         </div>
 
       </section>
