@@ -79,3 +79,14 @@ export const edit = (motorId, data) => {
     })
     .then(res => res.json());
 }
+
+export const deleteMotor = (motorId) => {
+    return fetch(`${baseUrl}/data/motorcycles/${motorId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken()
+        }
+    })
+    .then(res => res.json());
+}

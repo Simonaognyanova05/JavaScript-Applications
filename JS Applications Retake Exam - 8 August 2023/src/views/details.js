@@ -23,7 +23,7 @@ const detailsTemplate = (motor, user) => html`
               html`
               <div id="action-buttons">
               <a href="/motorcycles/${motor._id}/edit" id="edit-btn">Edit</a>
-              <a href="" id="delete-btn">Delete</a>
+              <a href="/games/${motor._id}/delete" id="delete-btn">Delete</a>
             </div>
               `
               :nothing
