@@ -23,7 +23,7 @@ const detailsTemplate = (motor, user) => html`
             </div>
 
             ${
-              user._id == user._ownerId
+              user._id == motor._ownerId
               ?
               editAndDelete
               :nothing
