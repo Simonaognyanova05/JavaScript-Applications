@@ -19,7 +19,7 @@ page('/register', registerView);
 page('/dashboard', dashboardView);
 page('/create', createView);
 page('/motorcycles/:motorId', detailsView);
-page('/edit', editView);
+page('/motorcycles/:motorId/edit', editView);
 page('/logout', logoutView);
 
 

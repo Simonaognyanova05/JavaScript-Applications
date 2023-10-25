@@ -1,12 +1,7 @@
 import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 import { getOne } from '../services/requests.js';
 
-const editAndDelete = html`
-<div id="action-buttons">
-              <a href="/edit" id="edit-btn">Edit</a>
-              <a href="" id="delete-btn">Delete</a>
-            </div>
-`;
+
 const detailsTemplate = (motor, user) => html`
     <section id="details">
         <div id="details-wrapper">
@@ -25,7 +20,12 @@ const detailsTemplate = (motor, user) => html`
             ${
               user._id == motor._ownerId
               ?
-              editAndDelete
+              html`
+              <div id="action-buttons">
+              <a href="/motorcycles/${motor._id}/edit" id="edit-btn">Edit</a>
+              <a href="" id="delete-btn">Delete</a>
+            </div>
+              `
               :nothing
             }
             <!--Edit and Delete are only for creator-->

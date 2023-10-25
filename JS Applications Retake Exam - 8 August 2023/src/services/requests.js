@@ -67,3 +67,15 @@ export const create = (data) => {
     })
     .then(res => res.json())
 }
+
+export const edit = (motorId, data) => {
+    return fetch(`${baseUrl}/data/motorcycles/${motorId}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken()
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json());
+}
