@@ -1,5 +1,4 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { create } from '../services/requests.js';
 
 const createTemplate = (submitHandler) => html`
   <section id="create">
@@ -25,10 +24,8 @@ export const createView = (ctx) => {
 
     const data = Object.fromEntries(new FormData(e.currentTarget));
 
-    create(data)
-    .then(() => {
-      ctx.page.redirect('/dashboard');
-    })
+    
+    console.log(data);
   }
     render(createTemplate(submitHandler), document.querySelector('main'));
 }

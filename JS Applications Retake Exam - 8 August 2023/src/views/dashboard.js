@@ -10,7 +10,7 @@ const motorcycleTemplate = (motorcycle) => html`
           <p class="year">Year: ${motorcycle.year}</p>
           <p class="mileage">Mileage: ${motorcycle.mileage} km.</p>
           <p class="contact">Contact Number: ${motorcycle.contact}</p>
-          <a class="details-btn" href="/details">More Info</a>
+          <a class="details-btn" href="/motorcycles/${motorcycle._id}">More Info</a>
         </div>
 
   </section>
@@ -23,7 +23,6 @@ const dashboardTemplate = (motorcycles) => html`
 export const dashboardView = () => {
   getAllMotorcicles()
   .then(motorcycles => {
-
-    render(dashboardTemplate(motorcycles), document.querySelector('main'));
+      render(dashboardTemplate(motorcycles), document.querySelector('main'));
   })
 }

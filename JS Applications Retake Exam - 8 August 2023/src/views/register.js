@@ -33,3 +33,4 @@ export const registerView = (ctx) => {
     }
     render(registerTemplate(submitHandler), document.querySelector('main'));
 }
+

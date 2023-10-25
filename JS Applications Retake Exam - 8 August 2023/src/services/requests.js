@@ -35,28 +35,24 @@ export const register = (email, password) => {
         .catch(err => alert(err));
 }
 
+
 export const logout = () => {
     return fetch(`${baseUrl}/users/logout`, {
-        'X-Authorization': authService.getToken()
+        headers: { 'X-Authorization': authService.getToken() }
     })
         .then(() => {
             authService.deleteUser();
         })
 }
 
+
 export const getAllMotorcicles = () => {
     return fetch(`${baseUrl}/data/motorcycles?sortBy=_createdOn%20desc`)
         .then(res => res.json());
 }
 
-export const create = (data) => {
-    return fetch(`${baseUrl}/data/motorcycles`, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-            'X-Authorization': authService.getToken()
-        },
-        body: JSON.stringify(data)
-    })
+export const getOne = (motorId) => {
+    return fetch(`${baseUrl}/data/motorcycles/${motorId}`)
     .then(res => res.json());
 }
+

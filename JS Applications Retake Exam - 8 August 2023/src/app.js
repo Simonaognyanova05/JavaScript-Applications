@@ -18,7 +18,7 @@ page('/login', loginView);
 page('/register', registerView);
 page('/dashboard', dashboardView);
 page('/create', createView);
-page('/details', detailsView);
+page('/motorcycles/:motorId', detailsView);
 page('/edit', editView);
 page('/logout', logoutView);
 

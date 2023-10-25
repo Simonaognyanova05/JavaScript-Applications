@@ -9,15 +9,15 @@ export const getUser = () => {
     let serializedUser = localStorage.getItem('user');
 
     if(serializedUser){
-        let user = JSON.stringify(serializedUser);
+        let user = JSON.parse(serializedUser);
 
         return user;
     }
 }
-export const getToken = () => {
-    return getUser?.accessToken;
-}
 
+export const getToken = () => {
+    return getUser()?.accessToken;
+}
 export const deleteUser = () => {
     localStorage.removeItem('user');
 }
