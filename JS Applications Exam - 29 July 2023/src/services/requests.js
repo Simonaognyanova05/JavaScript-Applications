@@ -1,4 +1,4 @@
-import { saveUser } from "./authServices.js";
+import * as authService from "./authServices.js";
 
 const baseUrl = 'http://localhost:3030';
 
@@ -10,12 +10,12 @@ export const login = (data) => {
         },
         body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(user => {
-        saveUser(user);
+        .then(res => res.json())
+        .then(user => {
+            authService.saveUser(user);
 
-        return user;
-    });
+            return user;
+        });
 }
 export const register = (data) => {
     return fetch(`${baseUrl}/users/register`, {
@@ -25,10 +25,19 @@ export const register = (data) => {
         },
         body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(user => {
-        saveUser(user);
+        .then(res => res.json())
+        .then(user => {
+            authService.saveUser(user);
 
-        return user;
-    });
+            return user;
+        });
+}
+
+export const logout = () => {
+    return fetch(`${baseUrl}/users/logout`, {
+        headers: { 'X-Authorization': authService.getToken() }
+    })
+        .then(() => {
+            authService.deleteUser();
+        })
 }

@@ -32,7 +32,6 @@ export const registerView = (ctx) => {
         .then(() => {
             ctx.page.redirect('/');
         }) 
-        console.log(data);
     }
     render(registerTemplate(submitHandler), document.querySelector('main'));
 }
