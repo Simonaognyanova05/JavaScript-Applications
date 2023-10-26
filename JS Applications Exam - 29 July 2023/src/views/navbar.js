@@ -9,7 +9,7 @@ const loggedInUser = html`
 
 const guestUser = html`
 <div class="guest">
-    <a href="#">Login</a>
+    <a href="/login">Login</a>
     <a href="/register">Register</a>            
 </div>
 `;
