@@ -1,7 +1,7 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
 
 const detailsTemplate = () => html`
-<section id="details">
+ <section id="details">
         <div id="details-wrapper">
           <img id="details-img" src="./images/fact 1.png" alt="example1" />
           <p id="details-category">History</p>
@@ -27,6 +27,16 @@ const detailsTemplate = () => html`
             </div>
 
             <h3>Likes:<span id="likes">0</span></h3>
+
+            <!--Edit and Delete are only for creator-->
+            <div id="action-buttons">
+              <a href="" id="edit-btn">Edit</a>
+              <a href="" id="delete-btn">Delete</a>
+
+            </div>
+          </div>
+        </div>
+      </section>
 `;
 
 export const detailsView = (ctx) => {
