@@ -1,6 +1,6 @@
 export const saveUser = (user) => {
     if(user.accessToken){
-        localStorage.saveUser('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
     }
 }
 export const getUser = () => {
