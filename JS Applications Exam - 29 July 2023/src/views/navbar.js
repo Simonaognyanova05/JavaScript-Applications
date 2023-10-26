@@ -10,7 +10,7 @@ const loggedInUser = html`
 const guestUser = html`
 <div class="guest">
     <a href="#">Login</a>
-    <a href="#">Register</a>            
+    <a href="/register">Register</a>            
 </div>
 `;
 const navbarTemplate = (user) => html`
