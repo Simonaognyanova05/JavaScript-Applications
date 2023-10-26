@@ -17,6 +17,11 @@ export const login = (data) => {
             return user;
         });
 }
+export const logout = () =>
+    fetch(`${baseUrl}/users/logout`, { headers: { 'X-Authorization': authService.getToken() } })
+        .then(() => {
+            authService.deleteUser();
+        });
 export const register = (data) => {
     return fetch(`${baseUrl}/users/register`, {
         method: 'POST',
@@ -33,11 +38,3 @@ export const register = (data) => {
         });
 }
 
-export const logout = () => {
-    return fetch(`${baseUrl}/users/logout`, {
-        headers: { 'X-Authorization': authService.getToken() }
-    })
-        .then(() => {
-            authService.deleteUser();
-        })
-}
