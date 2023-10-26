@@ -1,10 +1,11 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { register } from '../services/requests.js';
 
-const registerTemplate = () => html`
+const registerTemplate = (submitHandler) => html`
 <section id="register">
     <div class="form">
         <h2>Register</h2>
-        <form class="register-form">
+        <form class="register-form" @submit=${submitHandler}>
             <input type="text" name="email" id="register-email" placeholder="email"/>
             <input type="password" name="password" id="register-password" placeholder="password"/>
             <input type="password" name="re-password" id="repeat-password" placeholder="repeat password"/>
@@ -16,5 +17,22 @@ const registerTemplate = () => html`
 `;
 
 export const registerView = (ctx) => {
-    render(registerTemplate(), document.querySelector('main'));
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        let data = Object.fromEntries(new FormData(e.currentTarget));
+
+        if(data.password != data['re-password']){
+            alert('Passwords do not match!');
+
+            return;
+        }
+
+        register(data)
+        .then(() => {
+            ctx.page.redirect('/');
+        }) 
+        console.log(data);
+    }
+    render(registerTemplate(submitHandler), document.querySelector('main'));
 }
