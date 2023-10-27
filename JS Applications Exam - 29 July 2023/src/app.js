@@ -19,6 +19,8 @@ page('/login', loginView);
 page('/create', createView);
 page('/edit', editView);
 page('/logout', logoutView);
-page('/data/facts/:factId', detailsView)
+page('/facts/:factId', detailsView);
+page('/facts/:factId/edit', editView);
+
 
 page.start();

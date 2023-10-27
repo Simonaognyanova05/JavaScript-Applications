@@ -2,7 +2,7 @@ import { html, nothing, render } from '../../node_modules/lit-html/lit-html.js';
 import { getOne } from '../services/requests.js';
 
 const detailsTemplate = (fact, user) => html`
- <section id="details">
+  <section id="details">
         <div id="details-wrapper">
           <img id="details-img" src=${fact.imageUrl} alt="example1" />
           <p id="details-category">${fact.category}</p>
@@ -23,7 +23,7 @@ const detailsTemplate = (fact, user) => html`
               user._id == fact._ownerId
               ? html`<div id="action-buttons">
               <a href="" id="edit-btn">Edit</a>
-              <a href="" id="delete-btn">Delete</a>
+              <a href="/facts/${fact._id}/edit" id="delete-btn">Delete</a>
 
             </div>`
             :nothing

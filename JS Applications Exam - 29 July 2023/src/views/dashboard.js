@@ -8,7 +8,7 @@ const factTemplate = (fact) => html`
             <img src=${fact.imageUrl} alt="example1" />
             <h3 class="category">${fact.category}</h3>
             <p class="description">${fact.description}</p>
-            <a class="details-btn" href="/data/facts/${fact._id}">More Info</a>
+            <a class="details-btn" href="/facts/${fact._id}">More Info</a>
           </div>
         </section>
 `;

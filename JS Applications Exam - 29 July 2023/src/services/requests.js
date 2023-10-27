@@ -60,3 +60,15 @@ export const getOne = (factId) => {
     return fetch(`${baseUrl}/data/facts/${factId}`)
     .then(res => res.json());
 }
+
+export const edit = (factId, data) => {
+    return fetch(`${baseUrl}/data/facts/${factId}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken() 
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+}

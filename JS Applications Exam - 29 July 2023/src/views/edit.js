@@ -1,15 +1,16 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { getOne, edit } from '../services/requests.js';
 
-const editTemplate = () => html`
+const editTemplate = (fact, submitHandler) => html`
 <section id="edit">
         <div class="form">
           <h2>Edit Fact</h2>
-          <form class="edit-form">
-            <input type="text" name="category" id="category" placeholder="Category" />
-            <input type="text" name="image-url" id="image-url" placeholder="Image URL" />
-            <textarea id="description" name="description" placeholder="Description" rows="10" cols="50"></textarea>
-            <textarea id="additional-info" name="additional-info" placeholder="Additional Info" rows="10"
-              cols="50"></textarea>
+          <form class="edit-form" @submit=${submitHandler}>
+            <input type="text" name="category" id="category" value="${fact.category}" />
+            <input type="text" name="imageUrl" id="image-url" value=${fact.fact.imageUrl} />
+            <textarea id="description" name="description" rows="10" cols="50">${fact.description}</textarea>
+            <textarea id="additional-info" name="additional-info" rows="10"
+              cols="50">${fact['additional-info']}</textarea>
             <button type="submit">Post</button>
           </form>
         </div>
@@ -17,5 +18,20 @@ const editTemplate = () => html`
 `;
 
 export const editView = (ctx) => {
-    render(editTemplate(), document.querySelector('main'));
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    let factId = ctx.params.factId;
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+
+    edit(factId, data)
+      .then(() => {
+        ctx.page.redirect(`/facts/${factId}`);
+      })
+    console.log(data);
+  }
+  getOne(ctx.params.factId)
+    .then(fact => {
+      render(editTemplate(fact, submitHandler), document.querySelector('main'));
+    })
 }
