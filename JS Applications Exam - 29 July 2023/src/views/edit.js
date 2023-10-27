@@ -7,7 +7,7 @@ const editTemplate = (fact, submitHandler) => html`
           <h2>Edit Fact</h2>
           <form class="edit-form" @submit=${submitHandler}>
             <input type="text" name="category" id="category" value="${fact.category}" />
-            <input type="text" name="imageUrl" id="image-url" value=${fact.fact.imageUrl} />
+            <input type="text" name="imageUrl" id="image-url" value=${fact.imageUrl} />
             <textarea id="description" name="description" rows="10" cols="50">${fact.description}</textarea>
             <textarea id="additional-info" name="additional-info" rows="10"
               cols="50">${fact['additional-info']}</textarea>

@@ -25,7 +25,7 @@ export const createView = (ctx) => {
 
         create(data)
         .then(() => {
-            ctx.page.redirect('/dashboard');
+            ctx.page.redirect('/dashboard')
         })
         console.log(data);
     }
