@@ -22,8 +22,8 @@ const detailsTemplate = (fact, user) => html`
             ${
               user._id == fact._ownerId
               ? html`<div id="action-buttons">
-              <a href="" id="edit-btn">Edit</a>
-              <a href="/facts/${fact._id}/edit" id="delete-btn">Delete</a>
+              <a href="/facts/${fact._id}/edit" id="edit-btn">Edit</a>
+              <a href="" id="delete-btn">Delete</a>
 
             </div>`
             :nothing
@@ -37,7 +37,6 @@ const detailsTemplate = (fact, user) => html`
 export const detailsView = (ctx) => {
   getOne(ctx.params.factId)
   .then(fact => {
-    
     render(detailsTemplate(fact, ctx.user), document.querySelector('main'));
   })
 }
