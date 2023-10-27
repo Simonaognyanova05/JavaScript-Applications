@@ -3,6 +3,7 @@ import { authMiddleware } from "./middlewares/authMiddleware.js";
 import { renderNavigationMiddleware } from "./middlewares/renderMiddlewares.js";
 import { createView } from "./views/create.js";
 import { dashboardView } from "./views/dashboard.js";
+import { deleteView } from "./views/delete.js";
 import { detailsView } from "./views/details.js";
 import { editView } from "./views/edit.js";
 import { homeView } from "./views/home.js";
@@ -21,6 +22,8 @@ page('/edit', editView);
 page('/logout', logoutView);
 page('/facts/:factId', detailsView);
 page('/facts/:factId/edit', editView);
+page('/facts/:factId/delete', deleteView);
+
 
 
 page.start();

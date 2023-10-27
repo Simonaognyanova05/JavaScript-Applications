@@ -72,3 +72,14 @@ export const edit = (factId, data) => {
     })
     .then(res => res.json())
 }
+
+export const remove = (factId) => {
+    return fetch(`${baseUrl}/data/facts/${factId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken() 
+        }
+    })
+    .then(res => res.json())
+}
