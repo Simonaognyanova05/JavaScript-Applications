@@ -13,7 +13,6 @@ export const login = (data) => {
         .then(res => res.json())
         .then(user => {
             authService.saveUser(user);
-
             return user;
         });
 }
@@ -42,5 +41,17 @@ export const register = (data) => {
 
 export const getAll = () => {
     return fetch(`${baseUrl}/data/facts?sortBy=_createdOn%20desc`)
+    .then(res => res.json());
+}
+
+export const create = (data) => {
+    return fetch(`${baseUrl}/data/facts`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': authService.getToken() 
+        },
+        body: JSON.stringify(data)
+    })
     .then(res => res.json())
 }

@@ -4,10 +4,10 @@ export const saveUser = (user) => {
     }
 }
 export const getUser = () => {
-    const serialziaedUser = localStorage.getItem('user');
+    let serializedUser = localStorage.getItem('user');
 
-    if(serialziaedUser){
-        let user = JSON.stringify(serialziaedUser);
+    if(serializedUser){
+        let user = JSON.parse(serializedUser);
 
         return user;
     }
