@@ -55,3 +55,8 @@ export const create = (data) => {
     })
     .then(res => res.json())
 }
+
+export const getOne = (factId) => {
+    return fetch(`${baseUrl}/data/facts/${factId}`)
+    .then(res => res.json());
+}

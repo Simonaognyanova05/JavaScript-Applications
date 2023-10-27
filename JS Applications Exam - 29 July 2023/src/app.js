@@ -18,7 +18,7 @@ page('/register', registerView);
 page('/login', loginView);
 page('/create', createView);
 page('/edit', editView);
-page('/details', detailsView);
 page('/logout', logoutView);
+page('/data/facts/:factId', detailsView)
 
 page.start();
