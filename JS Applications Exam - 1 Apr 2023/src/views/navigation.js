@@ -20,7 +20,7 @@ const navigationTemplate = (user) => html`
 
 <nav>
     <div>
-        <a href="#">Fruits</a>
+        <a href="/dashboard">Fruits</a>
         <a href="#">Search</a>
     </div>
     ${user ? loggedUser : guestUser}          
