@@ -19,6 +19,8 @@ page('/login', loginView);
 page('/create', createView);
 page('/edit', editView);
 page('/fruits/:fruitId', detailsView);
+page('/fruits/:fruitId/edit', editView);
+
 page('/logout', logoutView);
 
 

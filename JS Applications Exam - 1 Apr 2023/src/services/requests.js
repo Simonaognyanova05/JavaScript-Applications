@@ -64,3 +64,15 @@ export const create = (data) => {
     })
     .then(res => res.json())
 }
+
+export const edit = (data, fruitId) => {
+    return fetch(`${baseUrl}/data/fruits/${fruitId}`, {
+        method: 'PUt',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': getToken()
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+}

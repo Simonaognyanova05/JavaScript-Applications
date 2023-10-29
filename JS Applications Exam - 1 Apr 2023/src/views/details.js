@@ -16,7 +16,7 @@ const detailsTemplate = (fruit, user) => html`
             ${
               user._id == fruit._ownerId 
               ? html` <div id="action-buttons">
-              <a href="" id="edit-btn">Edit</a>
+              <a href="/fruits/${fruit._id}/edit" id="edit-btn">Edit</a>
               <a href="" id="delete-btn">Delete</a>
             </div>`
             : nothing
