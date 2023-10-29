@@ -47,3 +47,8 @@ export const getAll = () => {
     return fetch(`${baseUrl}/data/fruits?sortBy=_createdOn%20desc`)
     .then(res => res.json());
 }
+
+export const getOne = (fruitId) => {
+    return fetch(`${baseUrl}/data/fruits/${fruitId}`)
+    .then(res => res.json());
+}
