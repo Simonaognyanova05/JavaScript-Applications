@@ -76,3 +76,14 @@ export const edit = (data, fruitId) => {
     })
     .then(res => res.json())
 }
+
+export const remove = (fruitId) => {
+    return fetch(`${baseUrl}/data/fruits/${fruitId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': getToken()
+        }
+    })
+    .then(res => res.json())
+}
