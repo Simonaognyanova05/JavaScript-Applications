@@ -1,4 +1,4 @@
-import { saveUser } from "./authService.js";
+import { deleteUser, getToken, saveUser } from "./authService.js";
 
 const baseUrl = `http://localhost:3030`;
 
@@ -31,5 +31,14 @@ export const register = (data) => {
         saveUser(user);
 
         return user;
+    });
+}
+
+export const logout = () => {
+    return fetch(`${baseUrl}/users/logout`, {
+        headers:{'X-Authorization': getToken()}
+    })
+    .then(() => {
+        deleteUser();
     });
 }

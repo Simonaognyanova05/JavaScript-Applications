@@ -3,7 +3,7 @@ import { html } from "../../node_modules/lit-html/lit-html.js";
 const loggedUser = html`
 <div class="user">
     <a href="/create">Add Fruit</a>
-    <a href="#">Logout</a>
+    <a href="/logout">Logout</a>
 </div>
 `;
 
