@@ -42,3 +42,8 @@ export const logout = () => {
         deleteUser();
     });
 }
+
+export const getAll = () => {
+    return fetch(`${baseUrl}/data/fruits?sortBy=_createdOn%20desc`)
+    .then(res => res.json());
+}
