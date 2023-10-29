@@ -52,3 +52,15 @@ export const getOne = (fruitId) => {
     return fetch(`${baseUrl}/data/fruits/${fruitId}`)
     .then(res => res.json());
 }
+
+export const create = (data) => {
+    return fetch(`${baseUrl}/data/fruits`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': getToken()
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+}
